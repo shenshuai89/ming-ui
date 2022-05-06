@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "preview-ui": "webpack serve --config ./examples/build/webpack.config.js",
-    "build:theme": "gulp build --gulpfile packages/theme-chalk/gulpfile.js"
+    "build:theme": "gulp build --gulpfile packages/theme-chalk/gulpfile.js",
+    "build": "webpack --config builds/webpack.config.js"
   },
   "workspaces": [
     "packages/*"
