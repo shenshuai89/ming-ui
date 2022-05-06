@@ -113,4 +113,10 @@ module.exports = {
 
 ```
 
-
+## 设置启动预览命令
+在package.json 中设置scripts
+```
+"scripts": {
+  "preview-ui": "webpack serve --config ./examples/build/webpack.config.js"
+}
+```
