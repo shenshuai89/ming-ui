@@ -1,11 +1,11 @@
 import { App } from "vue";
-import Button from "@ming-ui/button";
-import Icon from "@ming-ui/icon";
+import MButton from "@ming-ui/button";
+import MIcon from "@ming-ui/icon";
 
-const components = [Button, Icon];
+const components = [MButton, MIcon];
 const install = (app: App): void => {
   components.forEach((component) => {
-    app.component(component.name);
+    app.component(component.name, component);
   });
 };
 export default {

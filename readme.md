@@ -27,3 +27,18 @@ declare module '*.vue' {
 ```
 yarn add vue@next -W
 ```
+## 创建项目预览组件功能
+项目目录/examples
+
+### 创建webpack配置文件
+webpack.config.js文件
+``` js
+
+```
+
+安装依赖
+``` 
+yarn add webpack webpack-cli webpack-dev-server vue-loader@next @vue/compiler-sfc babel-loader @babel/core @babel/preset-env @babel/preset-typescript babel-plugin-module-resolver url-loader file-loader html-webpack-plugin css-loader sass-loader style-loader sass -D -W
+```
+
+
