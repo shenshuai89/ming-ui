@@ -1,0 +1,22 @@
+{
+  "name": "@ming-ui/button",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "申帅 <shuai.shen@ersoft.cn>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/button.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
