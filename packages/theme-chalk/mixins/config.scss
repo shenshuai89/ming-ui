@@ -1,0 +1,4 @@
+$namespace: "m"; // scss命名空间，。都是以m开头
+$state-prefix:"is-"; // 表示状态 is-readonly is-disabled
+$modifier-separator:"--"; //修饰作用 m-button--primary
+$element-separator: "__"; // 元素之间的分割 m-app__body

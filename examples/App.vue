@@ -1,6 +1,6 @@
 <template>
     <div>
         <m-button></m-button>
-        <m-icon></m-icon>
+        <m-icon name="loading"></m-icon>
     </div>
 </template>

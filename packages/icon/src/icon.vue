@@ -1,9 +1,15 @@
 <template>
-    <div>icon</div>
+  <i :class="`m-icon-${name}`"></i>
 </template>
 <script lang="ts">
-import {defineComponent} from "vue"
+import { defineComponent } from "vue";
 export default defineComponent({
-    name:"MIcon"
-})
+  name: "MIcon",
+  props: {
+    name: {
+      type: String,
+      default: "",
+    },
+  },
+});
 </script>
