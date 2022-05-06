@@ -214,6 +214,14 @@ module.exports = {
   - 修改App.vue中对icon组件的使用  ```<m-icon name="loading"></m-icon>```
 
 
+## 组件的样式处理
+### 使用gulp打包scss文件
+安装依赖
+```
+yarn add gulp gulp-autoprefixer gulp-cssmin gulp-dart-sass gulp-rename -D -W
+```
+
+
 
 
 ## 设置启动预览命令
