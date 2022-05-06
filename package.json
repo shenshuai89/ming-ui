@@ -7,7 +7,9 @@
   "scripts": {
     "preview-ui": "webpack serve --config ./examples/build/webpack.config.js",
     "build:theme": "gulp build --gulpfile packages/theme-chalk/gulpfile.js",
-    "build": "webpack --config builds/webpack.config.js"
+    "build": "webpack --config builds/webpack.config.js",
+    "build:esm-bundle": "rollup -c ./builds/rollup.config.bundle.js",
+    "build:esm": "rollup -c ./builds/rollup.config.js"
   },
   "workspaces": [
     "packages/*"
@@ -19,6 +21,7 @@
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@vue/compiler-sfc": "^3.2.33",
     "babel-loader": "^8.2.5",
     "babel-plugin-module-resolver": "^4.1.0",
@@ -31,6 +34,9 @@
     "gulp-rename": "^2.0.0",
     "html-webpack-plugin": "^5.5.0",
     "lerna": "^4.0.0",
+    "rollup": "^2.72.0",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "rollup-plugin-vue": "^6.0.0",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",

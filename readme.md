@@ -291,9 +291,110 @@ yarn add gulp gulp-autoprefixer gulp-cssmin gulp-dart-sass gulp-rename -D -W
   }
 ```
 
-### 分组件打包
+### 打包esModule格式组件库
+安装所需依赖
+```js
+yarn add rollup rollup-plugin-typescript2 @rollup/plugin-node-resolve rollup-plugin-vue -D -W
+```
+#### 全量打包
+添加全量打包配置 rollup-config.bundle.js
+``` js
+import typescript from "rollup-plugin-typescript2";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import path from "path";
+import vue from "rollup-plugin-vue";
 
+export default {
+  input: path.resolve(__dirname, `../packages/ming-ui/index.ts`),
+  output: {
+    format: "es",
+    file: `lib/index.esm.js`,
+  },
+  plugins: [
+    nodeResolve(),
+    vue({
+      target: "browser",
+    }),
+    typescript({
+      tsconfigOverride: {
+        exclude: ["node_modules", "examples"],
+      },
+    }),
+  ],
+  external(id) {
+    // 排除vue本身
+    return /^vue/.test(id);
+  },
+};
 
+```
+添加打包命令
+``` json
+  "scripts": {
+    "build:esm-bundle": "rollup -c ./builds/rollup.config.bundle.js"
+  }
+```
+
+#### 分组件打包
+添加打包配置 rollup.config.js
+``` js
+import typescript from "rollup-plugin-typescript2";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import path from "path";
+import { getPackagesSync } from "@lerna/project"; // 该插件的作用是，查找lerna项目下的所有包
+import vue from "rollup-plugin-vue";
+
+// 获取package.json 找到以@ming-ui 开头的组件包
+const inputs = getPackagesSync()
+  .map((pck) => pck.name)
+  .filter((name) => name.includes("@ming-ui"));
+
+export default inputs.map((name) => {
+  const pckName = name.split("@ming-ui")[1];
+  return {
+    input: path.resolve(__dirname, `../packages/${pckName}/index.ts`),
+    output: {
+      format: "es",
+      file: `lib/${pckName}/index.js`,
+    },
+    plugins: [
+      nodeResolve(),
+      vue({
+        target: "browser",
+      }),
+      typescript({
+        tsconfigOverride: {
+          compilerOptions: {
+            // 打包单个组件时，不用生成ts的声明文件
+            declaration: false,
+          },
+          exclude: ["node_modules"],
+        },
+      }),
+    ],
+    external(id) {
+      // 排除vue本身 和自己设置的ming-ui包
+      return /^vue/.test(id) || /^@ming-ui/.test(id);
+    },
+  };
+});
+
+```
+添加打包命令
+``` json
+  "scripts": {
+    "build:esm": "rollup -c ./builds/rollup.config.js"
+  }
+```
+修改main.ts，此时可以把组件按需加载引入
+``` js
+import "../lib/theme-chalk/index.css";
+import MButton from "../lib/button/index.js"; //组件可以按需加载
+import MIcon from "../lib/icon/index.js"; //组件可以按需加载
+import App from "./App.vue";
+
+createApp(App).use(MButton).use(MIcon).mount("#app");
+```
 
 ## 设置启动预览命令
 在package.json 中设置scripts
