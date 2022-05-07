@@ -1,4 +1,4 @@
-import { computed, defineComponent, h, PropType } from "vue";
+import { computed, defineComponent, h, PropType, provide } from "vue";
 export default defineComponent({
   name: "MRow",
   props: {
@@ -19,8 +19,22 @@ export default defineComponent({
   },
   setup(props, { slots }) {
     const styleClass = computed(() => ["m-row"]);
+    provide("ZRow", props.gutter);
+
+    const styles = computed(() => {
+      if (props.gutter) {
+        return {
+          marginLeft: -(props.gutter / 2) + "px",
+          marginRight: -(props.gutter / 2) + "px",
+        };
+      }
+    });
     return () => {
-      return h(props.tag, { class: styleClass.value }, slots.default?.());
+      return h(
+        props.tag,
+        { class: styleClass.value, style: styles.value },
+        slots.default?.()
+      );
     };
   },
 });

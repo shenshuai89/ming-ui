@@ -1,4 +1,4 @@
-import { computed, defineComponent, h } from "vue";
+import { computed, defineComponent, h, inject } from "vue";
 export default defineComponent({
   name: "MCol",
   props: {
@@ -16,6 +16,8 @@ export default defineComponent({
     },
   },
   setup(props, { slots }) {
+    const gutter = inject("ZRow", 0);
+
     const styleClass = computed(() => {
       const post = ["span", "offset"] as const;
       const allClass = [];
@@ -25,13 +27,23 @@ export default defineComponent({
           allClass.push(`m-col-${item}-${props[item]}`);
         }
       });
-      return ["m-col", ...allClass]
+      return ["m-col", ...allClass];
     });
+
+    const styles = computed(() => {
+        if(gutter){
+            return {
+                paddingLeft: gutter/2 + 'px',
+                paddingRight: gutter/2 + 'px',
+            }
+        }
+    })
     return () => {
       return h(
         props.tag,
         {
           class: styleClass.value,
+          style: styles.value
         },
         slots.default?.()
       );
