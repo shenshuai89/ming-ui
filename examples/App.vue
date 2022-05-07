@@ -10,6 +10,10 @@
     <m-button icon="m-icon-notice" type="danger">buton</m-button>
     <m-button icon="m-icon-notice" type="danger"></m-button>
     <m-icon name="loading"></m-icon>
+    <m-button-group>
+        <m-button icon="m-icon-arrow-left">上一页</m-button>
+        <m-button>下一页 <i class="m-icon-arrow-right"></i></m-button>
+    </m-button-group>
   </div>
 </template>
 <script>
