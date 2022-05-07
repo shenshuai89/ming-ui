@@ -1,6 +1,9 @@
 <template>
   <button :class="styleClass">
-    <i :class="icon"></i>
+    <!-- 处理loading状态时 显示loading图标 -->
+    <i v-if="loading" class="m-icon-loading"></i>
+    <!-- 不存在loading状态时 才显示icon -->
+    <i v-if="icon && !loading" :class="icon"></i>
     <span><slot></slot></span>
   </button>
 </template>

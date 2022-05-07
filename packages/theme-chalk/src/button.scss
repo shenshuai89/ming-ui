@@ -9,6 +9,7 @@
     padding: 10px;
     border-radius: 5px;
     vertical-align: middle;
+    margin-right: 10px;
     // 样式以m-icon开头的，说明是 图标icon，将图标和内容添加间距
     & [class*="m-icon-"]{
         vertical-align: middle;
