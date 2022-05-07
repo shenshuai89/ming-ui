@@ -18,7 +18,10 @@ export default defineComponent({
     },
   },
   setup(props, { slots }) {
-    const styleClass = computed(() => ["m-row"]);
+    const styleClass = computed(() => [
+      "m-row",
+      props.justify !== "start" ? `is-justify-${props.justify}` : "",
+    ]);
     provide("ZRow", props.gutter);
 
     const styles = computed(() => {
