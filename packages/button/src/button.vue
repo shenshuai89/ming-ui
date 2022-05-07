@@ -4,7 +4,7 @@
     <i v-if="loading" class="m-icon-loading"></i>
     <!-- 不存在loading状态时 才显示icon -->
     <i v-if="icon && !loading" :class="icon"></i>
-    <span><slot></slot></span>
+    <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
 <script lang="ts">
