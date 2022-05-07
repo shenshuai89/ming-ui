@@ -1,0 +1,14 @@
+@import "./common/var.scss";
+@import "./mixins/mixin.scss";
+
+@include b(col){
+    @for $i from 1 through 24{
+        &.m-col-span-#{$i}{
+            max-width: (1/24 * $i) *100%;
+            flex: (1/24 * $i)*100%;
+        }
+        &.m-col-offset-#{$i}{
+            margin-left: (1/24 * $i)*100%;
+        }
+    }
+}
