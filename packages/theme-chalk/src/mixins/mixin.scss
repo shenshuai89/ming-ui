@@ -31,3 +31,9 @@
         }
     }
 }
+
+@mixin button-type($color, $backgroundColor, $borderColor) {
+    color: $color;
+    background-color: $backgroundColor;
+    border-color: $borderColor;
+}

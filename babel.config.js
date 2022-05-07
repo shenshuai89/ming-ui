@@ -3,9 +3,9 @@ module.exports = {
     "@babel/preset-env",
     "@babel/preset-typescript", // 解析ts语法，在采用preset-env
   ],
-  overrides: [
+  overrides: [  // vue-loader默认不解析typescript语法
     {
-      test: /\.vue$/,
+      test: /\.vue$/, // 让vue格式的文件支持typescript， 插件@babel/plugin-transform-typescript
       plugins: [
         "@babel/transform-typescript",
       ],

@@ -1,0 +1,49 @@
+@import "./common/var.scss";
+@import "./mixins/mixin.scss";
+
+@include b(button){ // 和namespace技术后 m-button
+    display: inline-block;
+    outline: none;
+    border: #f3f3f3;
+    user-select: none;
+    padding: 10px;
+    border-radius: 5px;
+    vertical-align: middle;
+    // 样式以m-icon开头的，说明是 图标icon，将图标和内容添加间距
+    & [class*="m-icon-"]{
+        vertical-align: middle;
+        & + span{
+            margin-left: 5px;
+        }
+    }
+
+    @include when(disabled){
+        cursor: not-allowed;
+    }
+    @include when(loading){
+        pointer-events: none;
+    }
+    @include when(round){
+        border-radius:10%;
+    }
+    @include when(circle){
+        border-radius:50%;
+    }
+
+    @include m(primary){
+        @include button-type($--color-white, $--color-primary, $--color-primary);
+    }
+    @include m(success){
+        @include button-type($--color-white, $--color-success, $--color-success);
+    }
+    @include m(danger){
+        @include button-type($--color-white, $--color-danger, $--color-danger);
+    }
+    @include m(warning){
+        @include button-type($--color-white, $--color-warning, $--color-warning);
+    }
+    @include m(info){
+        @include button-type($--color-white, $--color-info, $--color-info);
+    }
+}
+
