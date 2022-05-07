@@ -1,5 +1,5 @@
 <template>
-  <button :class="styleClass">
+  <button :class="styleClass" @click="handleClick">
     <!-- 处理loading状态时 显示loading图标 -->
     <i v-if="loading" class="m-icon-loading"></i>
     <!-- 不存在loading状态时 才显示icon -->
@@ -42,6 +42,7 @@ export default defineComponent({
     circle: Boolean,
   },
   name: "MButton",
+  emits: ['click'],
   setup(props, ctx) {
     const styleClass = computed(() => {
       return [
@@ -53,7 +54,10 @@ export default defineComponent({
         { "is-circle": props.circle },
       ];
     });
-    return { styleClass };
+    const handleClick = (e) => {
+      ctx.emit("click", e);
+    };
+    return { styleClass, handleClick };
   },
 });
 </script>
