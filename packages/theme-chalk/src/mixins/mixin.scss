@@ -37,3 +37,20 @@
     background-color: $backgroundColor;
     border-color: $borderColor;
 }
+@mixin button-group-type($color, $backgroundColor, $borderColor) {
+    .m-button{
+        color: $color!important;
+        background-color: $backgroundColor!important;
+        border-color: $borderColor!important;
+    }
+}
+
+// 定义响应式 responsive
+@mixin res($key, $map: $--breakpoints) {
+    // 循环断点Map，如果存在则返回
+    @if map-has-key($map, $key) {
+        @media only screen and #{inspect(map-get($map, $key))} {
+            @content;
+        }
+    }
+}
