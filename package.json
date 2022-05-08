@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "typescript": "^4.6.4",
-    "vue": "^3.2.31"
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.15"
   }
 }
