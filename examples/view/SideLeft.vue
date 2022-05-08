@@ -8,7 +8,15 @@
       @click="goToRouter(basic.router)"
     >
       {{ basic.name }}
-      <!-- <router-link :to="basic.router">{{ basic.name }}</router-link> -->
+    </li>
+    <h4>form表单组件</h4>
+    <li
+      v-for="form in formComponents"
+      :key="form.name"
+      :class="[activeComponent === form.router ? 'active-router' : '']"
+      @click="goToRouter(form.router)"
+    >
+      {{ form.name }}
     </li>
   </div>
 </template>
@@ -18,17 +26,21 @@ import { useRouter } from "vue-router";
 export default defineComponent({
   setup(props) {
     const routerInstance = useRouter();
-    const activeComponent = ref("button");
+    const activeComponent = ref("checkbox");
     const basicComponents = [
       { name: "button按钮", router: "button" },
       { name: "icon图标", router: "icon" },
       { name: "layout布局", router: "layout" },
     ];
+    const formComponents = [
+      { name: "checkbox多选框", router: "checkbox" },
+    ];
     const goToRouter = (path) => {
+      console.log(path);
       routerInstance.push("/" + path);
       activeComponent.value = path;
     };
-    return { basicComponents, goToRouter, activeComponent };
+    return { basicComponents, formComponents, goToRouter, activeComponent };
   },
 });
 </script>

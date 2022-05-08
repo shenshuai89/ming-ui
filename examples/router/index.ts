@@ -1,7 +1,12 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-const routes = [
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
+const routes: RouteRecordRaw[] = [
+  {
+    path: "/",
+    redirect: "/button",
+  },
   {
     path: "/button",
+    name: "button",
     component: () => import("../components/ButtonTest.vue"),
   },
   {
@@ -11,6 +16,10 @@ const routes = [
   {
     path: "/icon",
     component: () => import("../components/IconTest.vue"),
+  },
+  {
+    path: "/checkbox",
+    component: () => import("../components/CheckboxTest.vue"),
   },
 ];
 const router = createRouter({

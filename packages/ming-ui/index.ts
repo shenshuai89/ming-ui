@@ -4,8 +4,18 @@ import MIcon from "@ming-ui/icon";
 import MButtonGroup from "@ming-ui/button-group";
 import MCol from "@ming-ui/col";
 import MRow from "@ming-ui/row";
+import MCheckbox from "@ming-ui/checkbox";
+import MCheckboxGroup from "@ming-ui/checkbox-group";
 
-const components = [MButton, MIcon, MButtonGroup, MCol, MRow];
+const components = [
+  MButton,
+  MIcon,
+  MButtonGroup,
+  MCol,
+  MRow,
+  MCheckbox,
+  MCheckboxGroup,
+];
 const install = (app: App): void => {
   components.forEach((component) => {
     app.component(component.name, component);
