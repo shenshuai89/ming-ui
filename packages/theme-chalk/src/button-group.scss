@@ -13,4 +13,20 @@
             border-bottom-left-radius: 0;
         }
     }
+    
+    @include m(primary){
+        @include button-group-type($--color-white, $--color-primary, $--color-primary);
+    }
+    @include m(success){
+        @include button-group-type($--color-white, $--color-success, $--color-success);
+    }
+    @include m(danger){
+        @include button-group-type($--color-white, $--color-danger, $--color-danger);
+    }
+    @include m(warning){
+        @include button-group-type($--color-white, $--color-warning, $--color-warning);
+    }
+    @include m(info){
+        @include button-group-type($--color-white, $--color-info, $--color-info);
+    }
 }
