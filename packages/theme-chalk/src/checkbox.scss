@@ -1,0 +1,14 @@
+@import "./common/var.scss";
+@import "./mixins/mixin.scss";
+
+@include b(checkbox) {
+  padding: 2px 4px;
+  @include e(input) {
+    vertical-align: middle;
+    margin-right: 3px;
+    opacity: .75;
+  }
+  @include when(checked) {
+    color: $--color-primary;
+  }
+}
