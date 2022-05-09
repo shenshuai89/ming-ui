@@ -1,3 +1,5 @@
+import { ComputedRef } from "vue";
+
 export interface ICheckboxProps {
   indeterminate?: boolean; //半选
   checked?: boolean; //选中
@@ -5,4 +7,11 @@ export interface ICheckboxProps {
   disabled?: boolean; //是否可选
   label?: string | boolean | number; // group中使用
   modelValue?: string | boolean | number; //绑定值
+}
+
+// checkbox-group
+export interface ICheckboxGroupProvide {
+  modelValue?: ComputedRef;
+  changeEvent?: (val: unknown) => void;
+  name?: string;
 }

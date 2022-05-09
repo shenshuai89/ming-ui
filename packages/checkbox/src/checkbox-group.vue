@@ -1,10 +1,27 @@
 <template>
-  <div>checkbox group</div>
+  <div class="z-checkbox-group">
+    <slot></slot>
+  </div>
 </template>
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, computed, provide } from "vue";
 export default defineComponent({
   name: "MCheckboxGroup",
-  setup(props) {},
+  props: {
+    modelValue: Array,
+  },
+  emits: ["change", "update:modelValue"],
+  setup(props, { emit }) {
+    const modelValue = computed(() => props.modelValue);
+    const changeEvent = (val) => {
+      emit("change", val); // 更新change事件的val值
+      emit("update:modelValue", val); //更新v-model绑定的modelValue
+    };
+    provide("MCheckboxGroup", {
+      name: "MCheckboxGroup",
+      modelValue,
+      changeEvent,
+    });
+  },
 });
 </script>
