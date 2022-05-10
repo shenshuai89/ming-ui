@@ -49,17 +49,28 @@ const useCheck = (props: ITransferPanelProps, panelState: IPanelState) => {
   // 控制半选，如果选中的一部分数据，则title边上的选择框是半选状态
   const computedIndeterminate = ref(false);
   // 过滤掉 有disabled属性的选项
-  const checkableData = props.data.filter(
-    (item) => !item[disabledProp.value as string]
-  );
+
+  const getCheckableData = () => {
+    return props.data.filter((item) => !item[disabledProp.value as string]);
+  };
+  let checkableData = getCheckableData();
   // 点击是否进行全选和取消全选
   const handleIsAllChecked = (val: boolean) => {
     panelState.isAllChecked = val;
-    panelState.checked ? checkableData.map((item) => item[keyProp.value]) : [];
+    console.log(
+      checkableData,
+      panelState.checked,
+      props.data,
+      "全选和取消全选"
+    );
+    panelState.checked = val
+      ? checkableData.map((item) => item[keyProp.value])
+      : [];
   };
   watch(
     () => props.data,
     (newVal, oldVal) => {
+      checkableData = getCheckableData();
       // 原来选中的值
       const stashChecked = newVal.filter((item: DataItem) =>
         panelState.checked.includes(item.key)
