@@ -26,7 +26,7 @@ import { useRouter } from "vue-router";
 export default defineComponent({
   setup(props) {
     const routerInstance = useRouter();
-    const activeComponent = ref("checkbox");
+    const activeComponent = ref("transfer");
     const basicComponents = [
       { name: "button按钮", router: "button" },
       { name: "icon图标", router: "icon" },
@@ -34,6 +34,7 @@ export default defineComponent({
     ];
     const formComponents = [
       { name: "checkbox多选框", router: "checkbox" },
+      { name: "transfer穿梭框", router: "transfer" },
     ];
     const goToRouter = (path) => {
       console.log(path);

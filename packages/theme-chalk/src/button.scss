@@ -10,6 +10,7 @@
     border-radius: 5px;
     vertical-align: middle;
     margin-right: 10px;
+    cursor: pointer;
     // 样式以m-icon开头的，说明是 图标icon，将图标和内容添加间距
     & [class*="m-icon-"]{
         vertical-align: middle;
@@ -20,6 +21,7 @@
 
     @include when(disabled){
         cursor: not-allowed;
+        opacity: 0.4;
     }
     @include when(loading){
         pointer-events: none;

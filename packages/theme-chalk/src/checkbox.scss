@@ -3,6 +3,7 @@
 
 @include b(checkbox) {
   padding: 2px 4px;
+  cursor: pointer;
   @include e(input) {
     vertical-align: middle;
     margin-right: 3px;
