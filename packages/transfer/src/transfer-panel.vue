@@ -33,7 +33,12 @@ import {
   toRefs,
   watch,
 } from "vue";
-import { IPanelState, ITransferPanelProps, Props } from "./transfer.type";
+import {
+  IPanelState,
+  ITransferPanelProps,
+  Props,
+  DataItem,
+} from "./transfer.type";
 import MCheckboxGroup from "@ming-ui/checkbox-group";
 import MCheckbox from "@ming-ui/checkbox";
 const useCheck = (props: ITransferPanelProps, panelState: IPanelState) => {
@@ -55,7 +60,15 @@ const useCheck = (props: ITransferPanelProps, panelState: IPanelState) => {
   watch(
     () => props.data,
     (newVal, oldVal) => {
-      panelState.checked = [];
+      // 原来选中的值
+      const stashChecked = newVal.filter((item: DataItem) =>
+        panelState.checked.includes(item.key)
+      );
+      if (stashChecked.length > 0) {
+        panelState.checked = stashChecked.map((item: DataItem) => item.key);
+      } else {
+        panelState.checked = [];
+      }
     }
   );
 
@@ -95,7 +108,7 @@ export default defineComponent({
       type: String,
     },
     data: {
-      type: Array,
+      type: Array as PropType<DataItem[]>,
       default: () => [],
     },
     props: {

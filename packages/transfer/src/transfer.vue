@@ -71,11 +71,11 @@ export default defineComponent({
       emit("update:modelValue", currentValue);
     };
     const addToRight = () => {
-      console.log("addToRight", checkedState.leftChecked);
       const currentValue = props.modelValue.slice(0);
       checkedState.leftChecked.forEach((item) => {
         currentValue.push(item);
       });
+      // 移动到右侧，左侧选择的内容要清空
       checkedState.leftChecked = [];
       emit("update:modelValue", currentValue);
     };
