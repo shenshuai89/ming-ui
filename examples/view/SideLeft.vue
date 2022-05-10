@@ -26,7 +26,7 @@ import { useRouter } from "vue-router";
 export default defineComponent({
   setup(props) {
     const routerInstance = useRouter();
-    const activeComponent = ref("transfer");
+    const activeComponent = ref("button");
     const basicComponents = [
       { name: "button按钮", router: "button" },
       { name: "icon图标", router: "icon" },
