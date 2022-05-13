@@ -18,32 +18,37 @@
     >
       {{ form.name }}
     </li>
+    <h4>feedback反馈组件</h4>
+    <li
+      v-for="form in feedbackComponents"
+      :key="form.name"
+      :class="[activeComponent === form.router ? 'active-router' : '']"
+      @click="goToRouter(form.router)"
+    >
+      {{ form.name }}
+    </li>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
 import { useRouter } from "vue-router";
-export default defineComponent({
-  setup(props) {
-    const routerInstance = useRouter();
-    const activeComponent = ref("button");
-    const basicComponents = [
-      { name: "button按钮", router: "button" },
-      { name: "icon图标", router: "icon" },
-      { name: "layout布局", router: "layout" },
-    ];
-    const formComponents = [
-      { name: "checkbox多选框", router: "checkbox" },
-      { name: "transfer穿梭框", router: "transfer" },
-    ];
-    const goToRouter = (path) => {
-      console.log(path);
-      routerInstance.push("/" + path);
-      activeComponent.value = path;
-    };
-    return { basicComponents, formComponents, goToRouter, activeComponent };
-  },
-});
+import { ref } from "vue";
+const routerInstance = useRouter();
+const activeComponent = ref("button");
+const basicComponents = [
+  { name: "button按钮", router: "button" },
+  { name: "icon图标", router: "icon" },
+  { name: "layout布局", router: "layout" },
+];
+const formComponents = [
+  { name: "checkbox多选框", router: "checkbox" },
+  { name: "transfer穿梭框", router: "transfer" },
+];
+const feedbackComponents = [{ name: "message消息提示", router: "message" }];
+const goToRouter = (path) => {
+  console.log(path);
+  routerInstance.push("/" + path);
+  activeComponent.value = path;
+};
 </script>
 <style lang="scss">
 .side-left {

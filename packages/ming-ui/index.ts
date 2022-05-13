@@ -7,6 +7,7 @@ import MRow from "@ming-ui/row";
 import MCheckbox from "@ming-ui/checkbox";
 import MCheckboxGroup from "@ming-ui/checkbox-group";
 import MTransfer from "@ming-ui/transfer";
+import MMessage from "@ming-ui/message";
 
 const components = [
   MButton,
@@ -17,6 +18,7 @@ const components = [
   MCheckbox,
   MCheckboxGroup,
   MTransfer,
+  MMessage,
 ];
 const install = (app: App): void => {
   components.forEach((component) => {
