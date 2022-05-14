@@ -1,0 +1,39 @@
+@import "./common/var.scss";
+@import "./mixins/mixin.scss";
+
+@include b(avatar){
+    background-color: $--color-disabled;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    color: $--color-white;
+    width: $--avatar-size;
+    height: $--avatar-size;
+    img{
+        display: block;
+        height: 100%;
+    }
+    @include m(circle){
+        border-radius:50%;
+    }
+    @include m(square){
+        border-radius:$--border-radius-base;
+    }
+    
+
+    @include m(small){
+        width: 24px;
+        height: 24px;
+    }
+    @include m(default){
+        width: 40px;
+        height: 40px;
+    }
+    @include m(large){
+        width: 56px;
+        height: 56px;
+    }
+}

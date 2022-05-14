@@ -18,6 +18,15 @@
     >
       {{ form.name }}
     </li>
+    <h4>Data数据展示组件</h4>
+    <li
+      v-for="form in dataComponents"
+      :key="form.name"
+      :class="[activeComponent === form.router ? 'active-router' : '']"
+      @click="goToRouter(form.router)"
+    >
+      {{ form.name }}
+    </li>
     <h4>feedback反馈组件</h4>
     <li
       v-for="form in feedbackComponents"
@@ -43,6 +52,7 @@ const formComponents = [
   { name: "checkbox多选框", router: "checkbox" },
   { name: "transfer穿梭框", router: "transfer" },
 ];
+const dataComponents = [{ name: "Avatar头像", router: "avatar" }];
 const feedbackComponents = [{ name: "message消息提示", router: "message" }];
 const goToRouter = (path) => {
   console.log(path);
