@@ -5,7 +5,12 @@
 </template>
 <script lang="ts">
 import { computed, defineComponent, PropType } from "vue";
-import {BtnType} from "./button.vue"
+type BtnType = "primary"
+  | "success"
+  | "warning"
+  | "danger"
+  | "default"
+  | "info";
 export default defineComponent({
   name: "MButtonGroup",
   props:{

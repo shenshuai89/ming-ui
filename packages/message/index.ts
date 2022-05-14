@@ -1,8 +1,11 @@
-import Message from "./src/message.vue";
-import { App } from "vue";
-Message.install = (app: App):void => {
-    app.component(Message.name, Message)
-};
+import MMessage from "./src/message";
+import type { App } from "vue";
+
 type IWithInstall<T> = T & { install(app: App): void };
-const _Message: IWithInstall<typeof Message> = Message;
-export default _Message;
+(MMessage as any).install = (app: App): void => {
+    // app.component(Message.name, Message);
+  app.config.globalProperties.$message = MMessage;
+};
+
+export { MMessage };
+export default MMessage;

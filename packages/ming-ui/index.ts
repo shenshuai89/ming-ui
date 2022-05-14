@@ -1,4 +1,4 @@
-import { App } from "vue";
+import type { App, Plugin } from "vue";
 import MButton from "@ming-ui/button";
 import MIcon from "@ming-ui/icon";
 import MButtonGroup from "@ming-ui/button-group";
@@ -18,13 +18,11 @@ const components = [
   MCheckbox,
   MCheckboxGroup,
   MTransfer,
-  MMessage,
 ];
 const install = (app: App): void => {
   components.forEach((component) => {
     app.component(component.name, component);
   });
 };
-export default {
-  install,
-};
+export default { install };
+export { MMessage };

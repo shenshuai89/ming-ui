@@ -9,8 +9,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, PropType, computed } from "vue";
-export type BtnType =
-  | "primary"
+export type BtnType = "primary"
   | "success"
   | "warning"
   | "danger"

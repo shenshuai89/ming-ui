@@ -24,5 +24,12 @@
     @include e(body){
         height:300px;
         overflow: scroll;
+        .m-checkbox-group {
+                padding: 10px 15px;
+                box-sizing: border-box;
+            .m-checkbox {
+                display: block;
+            }
+        }
     }
 }

@@ -139,12 +139,3 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss" scoped>
-.m-checkbox-group {
-  padding: 10px 15px;
-  box-sizing: border-box;
-  .m-checkbox {
-    display: block;
-  }
-}
-</style>
