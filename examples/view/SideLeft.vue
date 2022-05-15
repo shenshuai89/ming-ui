@@ -50,12 +50,12 @@ const basicComponents = [
 ];
 const formComponents = [
   { name: "checkbox多选框", router: "checkbox" },
+  { name: "switch开关", router: "switch" },
   { name: "transfer穿梭框", router: "transfer" },
 ];
 const dataComponents = [{ name: "Avatar头像", router: "avatar" }];
 const feedbackComponents = [{ name: "message消息提示", router: "message" }];
 const goToRouter = (path) => {
-  console.log(path);
   routerInstance.push("/" + path);
   activeComponent.value = path;
 };

@@ -9,6 +9,7 @@ import MCheckboxGroup from "@ming-ui/checkbox-group";
 import MTransfer from "@ming-ui/transfer";
 import MMessage from "@ming-ui/message";
 import MAvatar from "@ming-ui/avatar";
+import MSwitch from "@ming-ui/switch";
 
 const components = [
   MButton,
@@ -20,6 +21,7 @@ const components = [
   MCheckboxGroup,
   MTransfer,
   MAvatar,
+  MSwitch,
 ];
 const install = (app: App): void => {
   components.forEach((component) => {
