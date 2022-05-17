@@ -8,7 +8,7 @@ module.exports = {
         text: "目录",
         link: "/guide/",
         items: [
-          { text: "上手使用", link: "/guide/started" },
+          { text: "上手使用", link: "/guide/" },
           { text: "组件开发", link: "/create/index" },
         ],
       },
