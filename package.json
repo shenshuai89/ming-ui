@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "preview-ui": "webpack serve --config ./examples/build/webpack.config.js",
+    "serve": "webpack serve --config ./examples/build/webpack.config.js",
     "build:theme": "gulp build --gulpfile packages/theme-chalk/gulpfile.js",
     "build": "webpack --config builds/webpack.config.js",
     "build:esm-bundle": "rollup -c ./builds/rollup.config.bundle.js",
@@ -13,6 +13,9 @@
   },
   "workspaces": [
     "packages/*"
+  ],
+  "files": [
+    "lib/"
   ],
   "keywords": [],
   "author": "",

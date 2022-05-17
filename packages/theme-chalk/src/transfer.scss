@@ -16,6 +16,7 @@
         display: inline-block ;
     }
     @include e(title){
+        margin:0;
         background-color: $--fill-color-light;
         padding:4px 10px;
         border-bottom: 1px solid #ccc;

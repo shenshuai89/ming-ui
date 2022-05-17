@@ -1,18 +1,13 @@
-## 使用lerna创建monorepo项目
-安装lerna
+# 初始化项目环境
+## 环境搭建
+### 安装lerna
   - yarn add lerna -g
   - 初始化项目 lerna init
-### 使用lerna创建组件包
-先创建基本的button组件
-```
-lerna create button
-```
-
-## 添加typescript的支持
+### 添加typescript的支持
 ``` js
 yarn add typescript -W
 ```
-### 默认无法解析.vue文件后缀的文件，增加typings
+默认无法解析.vue文件后缀的文件，增加typings
 typings/vue-shim.d.ts
 ``` js
 declare module '*.vue' {
@@ -23,14 +18,11 @@ declare module '*.vue' {
     export default component
 }
 ```
-### 安装vue 
+安装vue 
 ```
 yarn add vue@next -W
 ```
-## 创建项目预览组件功能
-项目目录/examples
-
-### 创建webpack配置文件
+创建webpack配置文件
 webpack.config.js文件
 ``` js
 const path = require("path");
@@ -112,7 +104,8 @@ module.exports = {
 };
 
 ```
-## 添加字体图标
+
+## 设置字体图标
 首先创建theme-chalk
 - lerna create theme-chalk
   - 创建出theme-chalk目录
@@ -214,7 +207,7 @@ module.exports = {
   - 修改App.vue中对icon组件的使用  ```<m-icon name="loading"></m-icon>```
 
 
-## 组件的样式处理
+## 样式scss打包
 ### 使用gulp打包scss文件
 安装依赖
 ```
@@ -243,8 +236,9 @@ yarn add gulp gulp-autoprefixer gulp-cssmin gulp-dart-sass gulp-rename -D -W
 
 ```
 
-## 组件库打包
-### 整体打包
+## 组件库全量打包
+
+### umd格式整体打包
 创建builds目录，新旧webpack.config.js
 ```js
   const path = require("path");
@@ -296,7 +290,6 @@ yarn add gulp gulp-autoprefixer gulp-cssmin gulp-dart-sass gulp-rename -D -W
 ```js
 yarn add rollup rollup-plugin-typescript2 @rollup/plugin-node-resolve rollup-plugin-vue -D -W
 ```
-#### 全量打包
 添加全量打包配置 rollup-config.bundle.js
 ``` js
 import typescript from "rollup-plugin-typescript2";
@@ -335,7 +328,8 @@ export default {
   }
 ```
 
-#### 分组件打包
+## 分组打包
+
 添加打包配置 rollup.config.js
 ``` js
 import typescript from "rollup-plugin-typescript2";
@@ -395,12 +389,3 @@ import App from "./App.vue";
 
 createApp(App).use(MButton).use(MIcon).mount("#app");
 ```
-
-## 设置启动预览命令
-在package.json 中设置scripts
-```
-"scripts": {
-  "preview-ui": "webpack serve --config ./examples/build/webpack.config.js"
-}
-```
-## 使用vitepress创建组件使用文档，可以预览

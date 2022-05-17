@@ -1,0 +1,16 @@
+{
+  "name": "ming-ui-doc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
+  },
+  "devDependencies": {
+    "ming-ui": "file:.yalc/ming-ui",
+    "vitepress": "0.22.1"
+  },
+  "dependencies": {}
+}

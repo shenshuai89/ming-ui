@@ -1,15 +1,9 @@
 <template>
-  <i :class="`m-icon-${name}`"></i>
+  <div>test component</div>
 </template>
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "MIcon",
-  props: {
-    name: {
-      type: String,
-      default: "",
-    },
-  },
 });
 </script>
