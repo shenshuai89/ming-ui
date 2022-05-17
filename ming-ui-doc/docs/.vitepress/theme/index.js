@@ -1,6 +1,6 @@
 import DefaultTheme from "vitepress/theme";
-import MingUI from "ming-ui"
-import "ming-ui/lib/theme-chalk/index.css"
+import MingUI from "ming-ui-plus"
+import "ming-ui-plus/lib/theme-chalk/index.css"
 
 export default {
   ...DefaultTheme,

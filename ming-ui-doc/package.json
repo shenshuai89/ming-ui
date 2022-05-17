@@ -9,7 +9,7 @@
     "serve": "vitepress serve docs"
   },
   "devDependencies": {
-    "ming-ui": "file:.yalc/ming-ui",
+    "ming-ui-plus": "^1.0.4",
     "vitepress": "0.22.1"
   },
   "dependencies": {}

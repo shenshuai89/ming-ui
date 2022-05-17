@@ -6,7 +6,7 @@
 </div>
 
 <script setup>
-import { MMessage } from "ming-ui";
+import { MMessage } from "ming-ui-plus";
 const showMessage = () => {
   MMessage({
     type: "success",
@@ -21,7 +21,7 @@ const showMessage = () => {
 </div>
 ```
 ``` js
-import { MMessage } from "ming-ui";
+import { MMessage } from "ming-ui-plus";
 const showMessage = () => {
   MMessage({
     type: "success",
