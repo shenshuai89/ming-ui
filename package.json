@@ -1,7 +1,8 @@
 {
   "name": "ming-ui-plus",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
+  "private": true,
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "unpkg": "lib/index.js",

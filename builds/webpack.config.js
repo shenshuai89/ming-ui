@@ -6,8 +6,11 @@ module.exports = {
   output: {
     path: path.join(__dirname, "../lib"),
     filename: "index.js",
-    libraryTarget: "umd", // umd支持commonjs和amd ，可以在浏览器运行，但是不支持es6
-    library: "ming-ui",
+    library: {
+      name: "ming-ui-plus",
+      type: 'umd', // umd支持commonjs和amd ，可以在浏览器运行，但是不支持es6
+    },
+    globalObject: 'this'
   },
   externals: {
     vue: {
