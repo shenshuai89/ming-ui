@@ -1,9 +1,11 @@
 {
-  "name": "ming-ui",
-  "version": "1.0.0",
+  "name": "ming-ui-plus",
+  "version": "1.0.1",
   "description": "",
-  "private": true,
   "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "unpkg": "lib/index.js",
+  "jsdelivr": "lib/index.js",
   "scripts": {
     "serve": "webpack serve --config ./examples/build/webpack.config.js",
     "build:theme": "gulp build --gulpfile packages/theme-chalk/gulpfile.js",
@@ -17,8 +19,16 @@
   "files": [
     "lib/"
   ],
-  "keywords": [],
-  "author": "",
+  "keywords": ["mingUI组件库", "前端UI库"],
+  "author": "shenshuai89@qq.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shenshuai89/ming-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shenshuai89/ming-ui/issues"
+  },
+  "homepage": "https://github.com/shenshuai89/ming-ui#readme",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.17.10",
